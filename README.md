@@ -7,5 +7,3 @@ As part of the [Django 3 - Full Stack Websites with Python Web Development](http
 - Django 3 ⚙️
 - HTML 🗃️
 - CSS 🎨
-
-Here is the [web](https://github.com/pablojrosa/pablojrosa.github.io/blob/main/portfolio/templates/portfolio/home.html)
