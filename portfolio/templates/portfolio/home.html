@@ -1,7 +1,8 @@
 {% extends 'portfolio/base.html' %}
 {% block content%}
 
-<h1>Welcome tom my portfolio</h1>
+<div class="container-sm"><h1>      Welcome to my portfolio</h1></div>
+
 
 {% load static %}
 
@@ -11,16 +12,55 @@
 <br>
 <img src="{% static 'portfolio/image_001.jpeg' %}" width="450" height="600" >
 
-{% for project in projects %}
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'portfolio/skills.001.jpeg' %}" width="1344" height="756" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+      <div class="carousel-item">
+        <a href="https://github.com/pablojrosa/password_generator"></a>
+        <img src="{% static 'portfolio/skills.002.jpeg' %}" width="1344" height="756" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+      <div class="carousel-item">
+        <a href="https://github.com/pablojrosa/password_generator"></a>
+        <img src="{% static 'portfolio/skills.003.jpeg' %}" width="1344" height="756" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block"></div>
+      </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 
-<h2>{{project.title}}</h2>
-<p>{{project.description}}</p>
-<br>
-<img src="{{project.image.url}}" width="500" height="325" >
-{% if project.image.url %}
-<br><a href="{{project.url}}">Link</a>
-{% endif %}
-
-{% endfor %}
+<div class="container overflow-hidden">
+    <div class="row gx-5">
+        {% for project in projects %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="{{project.image.url}}" class="card-img-top" width="350" height="150">
+                <div class="card-body">
+                    <h5 class="card-title">{{project.title}}</h5>
+                    <p class="card-text">{{project.description}}</p>
+                    <a href="{{project.url}}" class="btn btn-primary" target="_blank">Link</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %}
